@@ -1,9 +1,6 @@
 " David Amirault
 
 " reasonable defaults
-set ignorecase
-set smartcase
-
 set nobackup
 set nowritebackup
 if !isdirectory($HOME.'/.config/nvim/tmp')
@@ -25,6 +22,9 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
+set ignorecase
+set smartcase
+
 "-------------------------------------------------------------------------------
 
 " plugins
@@ -34,7 +34,7 @@ if !isdirectory($HOME.'/.config/nvim/bundle')
     let hasPlug=0
 endif
 
-call plug#begin('~/.config/nvim/bundle')
+call plug#begin($HOME.'/.config/nvim/bundle')
 Plug 'benekastah/neomake'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
