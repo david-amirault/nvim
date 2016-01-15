@@ -51,8 +51,9 @@ let g:airline_theme='base16'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 let g:deoplete#enable_at_startup=1
-let g:UltiSnipsJumpForwardTrigger='<c-f>'
-let g:UltiSnipsJumpBackwardTrigger='<c-b>'
+let g:UltiSnipsExpandTrigger='<C-a>'
+let g:UltiSnipsJumpForwardTrigger='<C-f>'
+let g:UltiSnipsJumpBackwardTrigger='<C-b>'
 let g:UltiSnipsSnippetDirectories=[$HOME.'/nvim/customsnippets', $HOME.'/.config/nvim/bundle/vim-snippets/UltiSnips']
 
 "-------------------------------------------------------------------------------
@@ -69,6 +70,24 @@ autocmd FileType cpp,java setlocal equalprg=astyle\ -A1sCSNLYpHUEk1xjcn
 autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab
 autocmd FileType md2 setlocal filetype=markdown
+
+function! CleverTab()
+   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+      return "\<Tab>"
+   else
+      return "\<C-n>"
+   endif
+endfunction
+inoremap <Tab> <C-r>=CleverTab()<CR>
+
+function! CleverSTab()
+   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+      return "\<S-Tab>"
+   else
+      return "\<C-p>"
+   endif
+endfunction
+inoremap <S-Tab> <C-r>=CleverSTab()<CR>
 
 " for Colemak
 let mapleader=","
