@@ -17,11 +17,8 @@ set wrap
 set linebreak
 set whichwrap+=<,>,h,l
 
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=4 softtabstop=4 shiftwidth=4
 set expandtab
-
 set ignorecase
 set smartcase
 
@@ -52,6 +49,8 @@ syntax enable
 let g:airline_theme='base16'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
+let g:UltiSnipsJumpForwardTrigger='<c-f>'
+let g:UltiSnipsJumpBackwardTrigger='<c-b>'
 let g:UltiSnipsSnippetDirectories=[$HOME.'/nvim/customsnippets', $HOME.'/.config/nvim/bundle/vim-snippets/UltiSnips']
 
 "-------------------------------------------------------------------------------
@@ -90,6 +89,6 @@ nnoremap <Leader>m :Neomake!<CR>
 nnoremap <Leader>r :!make run<CR><CR>
 nnoremap <Leader>o :copen<CR>
 nnoremap <Leader>x :cclose<CR>
-nnoremap <Leader>n :cnext<CR>
-nnoremap <Leader>p :cprevious<CR>
+nnoremap <Leader>f :cnext<CR>
+nnoremap <Leader>b :cprevious<CR>
 nnoremap <Leader>t :NERDTreeToggle<CR>
