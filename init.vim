@@ -69,7 +69,7 @@ autocmd bufenter * set vb t_vb=
 " filetype fixes
 autocmd FileType cpp,java setlocal equalprg=astyle\ -A1sCSNLYpHUEk1xjcn
 autocmd FileType python setlocal makeprg=pylint
-autocmd FileType python nnoremap <buffer> <Leader>m :Neomake<CR>
+autocmd BufWritePost *.py Neomake
 autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab
 
