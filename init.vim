@@ -1,6 +1,8 @@
 " David Amirault
 
 " reasonable defaults
+set clipboard+=unnamedplus
+
 set nobackup
 set nowritebackup
 if !isdirectory($HOME.'/.config/nvim/tmp')
@@ -15,7 +17,6 @@ set relativenumber
 set showcmd
 set wrap
 set linebreak
-set whichwrap+=<,>,h,l
 
 set tabstop=4 softtabstop=4 shiftwidth=4
 set expandtab
@@ -63,13 +64,14 @@ set background=dark
 colorscheme solarized
 match LineNr /\s\+$/
 autocmd bufenter * highlight CursorLineNr ctermfg=10 ctermbg=0
-
-" annoyances
 autocmd bufenter * set vb t_vb=
+
+" filetype fixes
 autocmd FileType cpp,java setlocal equalprg=astyle\ -A1sCSNLYpHUEk1xjcn
+autocmd FileType python setlocal makeprg=pylint
+autocmd FileType python nnoremap <buffer> <Leader>m :Neomake<CR>
 autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab
-autocmd FileType md2 setlocal filetype=markdown
 
 function! CleverTab()
    if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
@@ -107,7 +109,7 @@ noremap <C-.> 5<C-w>>
 nnoremap Y y$
 nnoremap <silent> <CR> :nohlsearch<CR>:redraw!<CR>
 nnoremap <Leader>m :Neomake!<CR>
-nnoremap <Leader>r :!make run<CR><CR>
+nnoremap <Leader>r :!make run<CR>
 nnoremap <Leader>o :copen<CR>
 nnoremap <Leader>x :cclose<CR>
 nnoremap <Leader>f :cnext<CR>
