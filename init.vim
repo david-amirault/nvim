@@ -52,7 +52,7 @@ let g:airline_theme='base16'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 let g:deoplete#enable_at_startup=1
-let g:UltiSnipsExpandTrigger='<C-a>'
+let g:UltiSnipsExpandTrigger='<C-s>'
 let g:UltiSnipsJumpForwardTrigger='<C-f>'
 let g:UltiSnipsJumpBackwardTrigger='<C-b>'
 let g:UltiSnipsSnippetDirectories=[$HOME.'/nvim/customsnippets', $HOME.'/.config/nvim/bundle/vim-snippets/UltiSnips']
@@ -67,9 +67,9 @@ autocmd bufenter * highlight CursorLineNr ctermfg=10 ctermbg=0
 autocmd bufenter * set vb t_vb=
 
 " filetype fixes
-autocmd FileType cpp,java setlocal equalprg=astyle\ -A1sCSNLYpHUEk1xjcn
+autocmd FileType cpp,java setlocal equalprg=astyle\ -A1sSNLYpHUk1cn
 autocmd FileType python setlocal makeprg=pylint
-autocmd BufWritePost *.py Neomake
+autocmd FileType python nnoremap <buffer> <Leader>m :Neomake<CR>
 autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab
 
