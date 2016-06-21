@@ -115,7 +115,7 @@ nnoremap <silent> <CR> :nohlsearch<CR>:redraw!<CR>
 nnoremap <Leader>t :NERDTreeToggle<CR>
 nnoremap <Leader>m :Neomake!<CR>
 nnoremap <Leader>r :!make run<CR>
-nnoremap <Leader>o :copen<CR>
+nnoremap <Leader>q :copen<CR>
 nnoremap <Leader>x :cclose<CR>
 nnoremap <Leader>f :cnext<CR>
 nnoremap <Leader>b :cprevious<CR>
