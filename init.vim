@@ -36,7 +36,6 @@ call plug#begin($HOME.'/.config/nvim/bundle')
 Plug 'benekastah/neomake'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Shougo/deoplete.nvim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -54,7 +53,6 @@ let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 let g:NERDTreeMapOpenSplit='s'
 let g:NERDTreeMapOpenVSplit='v'
-let g:deoplete#enable_at_startup=1
 let g:UltiSnipsExpandTrigger='<C-a>'
 let g:UltiSnipsListSnippets='<C-s>'
 let g:UltiSnipsJumpForwardTrigger='<C-f>'
@@ -77,24 +75,6 @@ autocmd FileType python nnoremap <buffer> <Leader>m :Neomake<CR>
 autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab
 
-function! CleverTab()
-   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-      return "\<Tab>"
-   else
-      return "\<C-n>"
-   endif
-endfunction
-inoremap <Tab> <C-r>=CleverTab()<CR>
-
-function! CleverSTab()
-   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-      return "\<S-Tab>"
-   else
-      return "\<C-p>"
-   endif
-endfunction
-inoremap <S-Tab> <C-r>=CleverSTab()<CR>
-
 " for Colemak
 let mapleader=","
 noremap ; :
@@ -110,6 +90,8 @@ noremap <C-k> <C-w><Down>
 noremap <C-l> <C-w><Right>
 noremap <C-,> 5<C-w><
 noremap <C-.> 5<C-w>>
+noremap tn <Esc>
+inoremap tn <Esc>
 nnoremap Y y$
 nnoremap <silent> <CR> :nohlsearch<CR>:redraw!<CR>
 nnoremap <Leader>t :NERDTreeToggle<CR>
