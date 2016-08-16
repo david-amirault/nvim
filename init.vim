@@ -56,7 +56,7 @@ let g:UltiSnipsExpandTrigger='<C-a>'
 let g:UltiSnipsListSnippets='<C-s>'
 let g:UltiSnipsJumpForwardTrigger='<C-f>'
 let g:UltiSnipsJumpBackwardTrigger='<C-b>'
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/bundle/vim-snippets/UltiSnips', $HOME.'/nvim/customsnippets']
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/bundle/vim-snippets/UltiSnips', $HOME.'/.config/nvim/customsnippets']
 
 "-------------------------------------------------------------------------------
 
