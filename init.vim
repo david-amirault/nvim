@@ -46,8 +46,7 @@ endif
 filetype plugin indent on
 syntax enable
 
-let g:solarized_termcolors=256
-let g:airline_theme='jellybeans'
+let g:airline_theme='base16'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 let g:NERDTreeMapOpenSplit='s'
@@ -63,7 +62,7 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/bundle/vim-snippets/Ulti
 " eye candy
 set background=dark
 colorscheme solarized
-autocmd bufenter * highlight CursorLineNr ctermfg=8 ctermbg=0
+autocmd bufenter * highlight CursorLineNr ctermfg=10 ctermbg=0
 autocmd bufenter * set vb t_vb=
 
 " filetype fixes
