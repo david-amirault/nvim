@@ -21,7 +21,7 @@ set expandtab
 set ignorecase
 set smartcase
 
-"-------------------------------------------------------------------------------
+"---------------------------------------------------------------------------
 
 " plugins
 let hasPlug=1
@@ -35,8 +35,7 @@ Plug 'benekastah/neomake'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-surround'
 call plug#end()
@@ -57,7 +56,7 @@ let g:UltiSnipsJumpForwardTrigger='<C-f>'
 let g:UltiSnipsJumpBackwardTrigger='<C-b>'
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/bundle/vim-snippets/UltiSnips', $HOME.'/.config/nvim/customsnippets']
 
-"-------------------------------------------------------------------------------
+"---------------------------------------------------------------------------
 
 " eye candy
 set background=dark
@@ -84,12 +83,10 @@ noremap <C-h> <C-w><Up>
 noremap <C-j> <C-w><Left>
 noremap <C-k> <C-w><Down>
 noremap <C-l> <C-w><Right>
-noremap <C-,> 5<C-w><
-noremap <C-.> 5<C-w>>
 noremap tn <Esc>
 inoremap tn <Esc>
 nnoremap Y y$
-nnoremap <silent> <CR> :nohlsearch<CR>:redraw!<CR>
+nnoremap <silent> <CR> :nohlsearch<CR>
 nnoremap <Leader>t :NERDTreeToggle<CR>
 nnoremap <Leader>m :Neomake!<CR>
 nnoremap <Leader>r :!make run<CR>
