@@ -59,10 +59,10 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/bundle/vim-snippets/Ulti
 "---------------------------------------------------------------------------
 
 " eye candy
-set background=light
+set background=dark
 colorscheme solarized
-autocmd bufenter * highlight CursorLineNr ctermfg=14 ctermbg=7
-" autocmd bufenter * highlight CursorLineNr ctermfg=10 ctermbg=0
+"autocmd bufenter * highlight CursorLineNr ctermfg=14 ctermbg=7
+autocmd bufenter * highlight CursorLineNr ctermfg=10 ctermbg=0
 autocmd bufenter * set vb t_vb=
 
 " filetype fixes
