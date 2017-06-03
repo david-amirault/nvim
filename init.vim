@@ -1,6 +1,8 @@
 " David Amirault
 
 " reasonable defaults
+set clipboard+=unnamedplus
+
 set nobackup
 set nowritebackup
 if !isdirectory($HOME.'/.config/nvim/tmp')
