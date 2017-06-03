@@ -2,6 +2,7 @@
 
 " reasonable defaults
 set clipboard+=unnamedplus
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175
 
 set nobackup
 set nowritebackup
@@ -63,6 +64,7 @@ colorscheme solarized
 "autocmd bufenter * highlight CursorLineNr ctermfg=14 ctermbg=7
 autocmd bufenter * highlight CursorLineNr ctermfg=10 ctermbg=0
 autocmd bufenter * set vb t_vb=
+autocmd VimLeave * set guicursor=a:ver25-blinwait700-blinkoff400-blinkon250
 
 " filetype fixes
 autocmd FileType cpp setlocal equalprg=astyle\ -A1sCSNLYpHUk1xjcnxC79
