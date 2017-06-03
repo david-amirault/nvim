@@ -4,10 +4,7 @@
 set nobackup
 set nowritebackup
 if !isdirectory($HOME.'/.config/nvim/tmp')
-    if !isdirectory($HOME.'/.config/nvim')
-        execute 'silent !mkdir ~/.config/nvim'
-    endif
-    execute 'silent !mkdir ~/.config/nvim/tmp'
+    execute 'silent !mkdir -p ~/.config/nvim/tmp'
 endif
 set dir=~/.config/nvim/tmp//
 
@@ -51,7 +48,7 @@ let g:airline#extensions#tabline#enabled=1
 let g:NERDTreeMapOpenSplit='s'
 let g:NERDTreeMapOpenVSplit='v'
 let g:UltiSnipsExpandTrigger='<C-a>'
-let g:UltiSnipsListSnippets='<C-s>'
+let g:UltiSnipsListSnippets='<C-r>'
 let g:UltiSnipsJumpForwardTrigger='<C-f>'
 let g:UltiSnipsJumpBackwardTrigger='<C-b>'
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/bundle/vim-snippets/UltiSnips', $HOME.'/.config/nvim/customsnippets']
@@ -66,7 +63,8 @@ autocmd bufenter * highlight CursorLineNr ctermfg=10 ctermbg=0
 autocmd bufenter * set vb t_vb=
 
 " filetype fixes
-autocmd FileType cpp,java setlocal equalprg=astyle\ -A1sCSNLYpHUEk1xjcn
+autocmd FileType cpp setlocal equalprg=astyle\ -A1sCSNLYpHUk1xjcnxC79
+autocmd FileType java setlocal equalprg=astyle\ -A2sCSNLYpHUk1xjcnxC79
 autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab
 autocmd FileType md2 setlocal filetype=markdown
