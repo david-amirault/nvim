@@ -7,9 +7,9 @@ set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinko
 set nobackup
 set nowritebackup
 if !isdirectory($HOME.'/.config/nvim/tmp')
-    execute 'silent !mkdir -p ~/.config/nvim/tmp'
+    execute 'silent !mkdir -p '.$HOME.'/.config/nvim/tmp'
 endif
-set dir=~/.config/nvim/tmp//
+set dir=$HOME/.config/nvim/tmp//
 
 set relativenumber
 set showcmd
@@ -38,6 +38,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-obsession'
 call plug#end()
 if hasPlug==0
     PlugInstall
