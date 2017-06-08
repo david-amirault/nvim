@@ -49,6 +49,7 @@ syntax enable
 let g:airline_theme='base16'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
+let g:NERDTreeShowHidden=1
 let g:NERDTreeMapOpenSplit='s'
 let g:NERDTreeMapOpenVSplit='v'
 let g:UltiSnipsExpandTrigger='<C-a>'
