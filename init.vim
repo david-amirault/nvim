@@ -26,7 +26,7 @@ set smartcase
 " plugins
 let hasPlug=1
 if !isdirectory($HOME.'/.config/nvim/bundle')
-    execute 'silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    execute 'silent !curl -fLo '.$HOME.'/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     let hasPlug=0
 endif
 
@@ -69,7 +69,7 @@ autocmd VimLeave * set guicursor=a:ver25-blinwait700-blinkoff400-blinkon250
 
 " filetype fixes
 autocmd FileType cpp setlocal equalprg=astyle\ -A1sCSNLYpHUk1xjcnxC79
-autocmd FileType java setlocal equalprg=astyle\ -A2sCSNLYpHUk1xjcnxC79
+autocmd FileType java setlocal equalprg=astyle\ -A2sSNLYpHUk1xjcnxC79
 autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab
 autocmd FileType md2 setlocal filetype=markdown
