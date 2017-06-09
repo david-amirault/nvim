@@ -63,7 +63,7 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/bundle/vim-snippets/Ulti
 " eye candy
 set background=dark
 colorscheme solarized
-"autocmd bufenter * highlight CursorLineNr ctermfg=14 ctermbg=7
+match LineNr /\s\+$/
 autocmd bufenter * highlight CursorLineNr ctermfg=10 ctermbg=0
 autocmd bufenter * set vb t_vb=
 autocmd VimLeave * set guicursor=a:ver25-blinwait700-blinkoff400-blinkon250
