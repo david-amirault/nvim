@@ -84,17 +84,15 @@ noremap L J
 noremap j h
 noremap h k
 noremap k j
-noremap <C-h> <C-w><Up>
-noremap <C-j> <C-w><Left>
-noremap <C-k> <C-w><Down>
-noremap <C-l> <C-w><Right>
+noremap <C-w>j <C-w>h
+noremap <C-w>h <C-w>k
+noremap <C-w>k <C-w>j
+noremap <Leader>t zt
+noremap <Leader>b zb
+noremap <Leader><Leader> zz
 noremap tn <Esc>
 inoremap tn <Esc>
 nnoremap Y y$
 nnoremap <silent> <CR> :nohlsearch<CR>
-nnoremap <Leader>t :NERDTreeToggle<CR>
+nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>m :Neomake!<CR>
-nnoremap <Leader>q :copen<CR>
-nnoremap <Leader>x :cclose<CR>
-nnoremap <Leader>f :cnext<CR>
-nnoremap <Leader>b :cprevious<CR>
