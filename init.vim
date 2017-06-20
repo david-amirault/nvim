@@ -96,7 +96,3 @@ nnoremap Y y$
 nnoremap <silent> <CR> :nohlsearch<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>m :Neomake!<CR>
-nnoremap <Leader>o :copen<CR>
-nnoremap <Leader>x :cclose<CR>
-nnoremap <Leader>f :cnext<CR>
-nnoremap <Leader>b :cprevious<CR>
