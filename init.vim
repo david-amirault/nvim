@@ -71,8 +71,8 @@ autocmd bufenter * set vb t_vb=
 autocmd VimLeave * set guicursor=a:ver25-blinwait700-blinkoff400-blinkon250
 
 " filetype fixes
-autocmd FileType c,cpp setlocal equalprg=astyle\ -A1sSNLYpHUk1xjcn
-autocmd FileType java setlocal equalprg=astyle\ -A2sSNLYpHUk1jcn
+autocmd FileType c,cpp setlocal equalprg=astyle\ -A1sSNLYpHUk1xbxjcn
+autocmd FileType java setlocal equalprg=astyle\ -A2sSNLYpHUk1xbjcn
 autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab
 autocmd FileType md2 setlocal filetype=markdown
