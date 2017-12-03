@@ -85,6 +85,9 @@ noremap L J
 noremap j h
 noremap h k
 noremap k j
+noremap gj gh
+noremap gh gk
+noremap gk gj
 noremap <C-w>j <C-w>h
 noremap <C-w>h <C-w>k
 noremap <C-w>k <C-w>j
