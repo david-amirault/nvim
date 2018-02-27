@@ -12,7 +12,6 @@ endif
 set dir=$HOME/.config/nvim/tmp//
 
 set relativenumber
-set showcmd
 set wrap
 set linebreak
 
