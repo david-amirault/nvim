@@ -14,6 +14,7 @@ set dir=$HOME/.config/nvim/tmp//
 set relativenumber
 set wrap
 set linebreak
+set whichwrap+=<,>,h,l
 
 set tabstop=4 softtabstop=4 shiftwidth=4
 set expandtab
