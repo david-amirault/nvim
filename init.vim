@@ -31,10 +31,9 @@ if !isdirectory($HOME.'/.config/nvim/bundle')
 endif
 
 call plug#begin($HOME.'/.config/nvim/bundle')
-Plug 'benekastah/neomake'
+Plug 'neomake/neomake'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-surround'
@@ -53,11 +52,6 @@ let g:NERDTreeMapOpenSplit='s'
 let g:NERDTreeMapOpenVSplit='v'
 let g:NERDTreeMapJumpFirstChild='J'
 let g:NERDTreeMapJumpLastChild='L'
-let g:UltiSnipsExpandTrigger='<C-a>'
-let g:UltiSnipsListSnippets='<C-r>'
-let g:UltiSnipsJumpForwardTrigger='<C-f>'
-let g:UltiSnipsJumpBackwardTrigger='<C-b>'
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/bundle/vim-snippets/UltiSnips', $HOME.'/.config/nvim/customsnippets']
 
 "---------------------------------------------------------------------------
 
