@@ -36,6 +36,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 call plug#end()
 if hasPlug==0
