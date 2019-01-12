@@ -24,23 +24,28 @@ set smartcase
 "---------------------------------------------------------------------------
 
 " plugins
-let hasPlug=1
+let hasVundle=1
 if !isdirectory($HOME.'/.config/nvim/bundle')
-    execute 'silent !curl -fLo '.$HOME.'/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    let hasPlug=0
+    execute 'silent !mkdir -p '.$HOME.'/.config/nvim/bundle'
+    execute 'silent !git clone https://github.com/VundleVim/Vundle.vim.git '.$HOME.'/.config/nvim/bundle/Vundle.vim'
+    let hasVundle=0
 endif
 
-call plug#begin($HOME.'/.config/nvim/bundle')
-Plug 'neomake/neomake'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-Plug 'altercation/vim-colors-solarized'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-call plug#end()
-if hasPlug==0
-    PlugInstall
+filetype off
+set rtp+=$HOME/.config/nvim/bundle/Vundle.vim
+call vundle#begin($HOME.'/.config/nvim/bundle')
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'neomake/neomake'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+call vundle#end()
+if hasVundle==0
+    PluginInstall
 endif
 filetype plugin indent on
 syntax enable
