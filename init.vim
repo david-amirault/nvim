@@ -43,8 +43,6 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
-Plugin 'kana/vim-textobj-user'
-Plugin 'rbonvall/vim-textobj-latex'
 call vundle#end()
 if hasVundle==0
     PluginInstall
