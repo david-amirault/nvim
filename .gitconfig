@@ -1,0 +1,7 @@
+[user]
+	name = david-amirault
+	email = david-amirault@users.noreply.github.com
+[core]
+	editor = nvim
+[credential]
+	helper = cache --timeout=3600
