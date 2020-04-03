@@ -94,6 +94,7 @@ noremap <Leader>b zb
 noremap <Leader><Leader> zz
 noremap tn <Esc>
 inoremap tn <Esc>
+inoremap {} {<CR>}<Esc>O
 nnoremap Y y$
 nnoremap <silent> <CR> :nohlsearch<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
