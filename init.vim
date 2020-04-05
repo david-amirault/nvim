@@ -2,7 +2,7 @@
 
 " reasonable defaults
 set clipboard+=unnamedplus
-set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175
+set guicursor=a:blinkon100
 
 set nobackup
 set nowritebackup
@@ -67,7 +67,7 @@ colorscheme solarized
 match LineNr /\s\+$/
 autocmd bufenter * highlight CursorLineNr ctermfg=10 ctermbg=0
 autocmd bufenter * set vb t_vb=
-autocmd VimLeave * set guicursor=a:ver25-blinwait700-blinkoff400-blinkon250
+autocmd VimLeave * set guicursor=a:ver25
 
 " filetype fixes
 autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
