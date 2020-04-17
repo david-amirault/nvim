@@ -24,46 +24,34 @@ set smartcase
 "---------------------------------------------------------------------------
 
 " plugins
-let hasVundle=1
-if !isdirectory($HOME.'/.config/nvim/bundle')
-    execute 'silent !mkdir -p '.$HOME.'/.config/nvim/bundle'
-    execute 'silent !git clone https://github.com/VundleVim/Vundle.vim.git '.$HOME.'/.config/nvim/bundle/Vundle.vim'
-    let hasVundle=0
+if !isdirectory($HOME.'/.config/nvim/plug')
+    execute 'silent !mkdir -p '.$HOME.'/.config/nvim/plug'
+    let autoload=$HOME.'/.local/share/nvim/site/autoload/plug.vim'
+    let url='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    execute 'silent !curl -fLo '.autoload.' --create-dirs '.url
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-filetype off
-set rtp+=$HOME/.config/nvim/bundle/Vundle.vim
-call vundle#begin($HOME.'/.config/nvim/bundle')
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'neomake/neomake'
-Plugin 'preservim/nerdtree'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-call vundle#end()
-if hasVundle==0
-    PluginInstall
-endif
-filetype plugin indent on
-syntax enable
-
-let g:airline_theme='base16'
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled=1
-let g:NERDTreeShowHidden=1
-let g:NERDTreeMapOpenSplit='s'
-let g:NERDTreeMapOpenVSplit='v'
-let g:NERDTreeMapJumpFirstChild='J'
-let g:NERDTreeMapJumpLastChild='L'
+call plug#begin($HOME.'/.config/nvim/plug')
+Plug 'neomake/neomake'
+Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
+call plug#end()
 
 "---------------------------------------------------------------------------
 
 " eye candy
+let g:airline_theme='solarized'
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled=1
 set background=dark
 colorscheme solarized
+
+" display fixes
 match LineNr /\s\+$/
 autocmd bufenter * highlight CursorLineNr ctermfg=10 ctermbg=0
 autocmd bufenter * set vb t_vb=
@@ -89,6 +77,8 @@ noremap gk gj
 noremap <C-w>j <C-w>h
 noremap <C-w>h <C-w>k
 noremap <C-w>k <C-w>j
+
+" for convenience
 noremap <Leader>t zt
 noremap <Leader>b zb
 noremap <Leader><Leader> zz
@@ -97,5 +87,5 @@ inoremap tn <Esc>
 inoremap {} {<CR>}<Esc>O
 nnoremap Y y$
 nnoremap <silent> <CR> :nohlsearch<CR>
-nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>m :Neomake!<CR>
+command PU PlugUpdate | PlugUpgrade
