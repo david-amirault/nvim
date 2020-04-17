@@ -36,11 +36,11 @@ set rtp+=$HOME/.config/nvim/bundle/Vundle.vim
 call vundle#begin($HOME.'/.config/nvim/bundle')
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'neomake/neomake'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
+Plugin 'preservim/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 call vundle#end()
