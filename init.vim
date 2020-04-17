@@ -74,9 +74,10 @@ noremap k j
 noremap gj gh
 noremap gh gk
 noremap gk gj
-noremap <C-w>j <C-w>h
-noremap <C-w>h <C-w>k
-noremap <C-w>k <C-w>j
+noremap <Leader>l <C-w>l
+noremap <Leader>j <C-w>h
+noremap <Leader>h <C-w>k
+noremap <Leader>k <C-w>j
 
 " for convenience
 noremap <Leader>t zt
@@ -87,5 +88,6 @@ inoremap tn <Esc>
 inoremap {} {<CR>}<Esc>O
 nnoremap Y y$
 nnoremap <silent> <CR> :nohlsearch<CR>
+nnoremap <Leader>n :E<CR>
 nnoremap <Leader>m :Neomake!<CR>
 command PU PlugUpdate | PlugUpgrade
