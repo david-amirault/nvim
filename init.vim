@@ -16,7 +16,7 @@ set expandtab
 set ignorecase
 set smartcase
 
-" backup directory
+" default directories
 let g:backupdir=stdpath('data').'/backup'
 if !isdirectory(g:backupdir)
     execute 'silent !mkdir -p '.g:backupdir
@@ -65,7 +65,7 @@ autocmd FileType make setlocal noexpandtab
 command! -bang -nargs=* -complete=file Make NeomakeProject <args>
 command! PU PlugUpdate | PlugUpgrade
 
-" for convenience
+" convenience mappings
 let mapleader=","
 noremap , <Nop>
 noremap <Leader>t zt
@@ -81,7 +81,7 @@ nnoremap <silent> <CR> :nohlsearch<CR>
 nnoremap <Leader>n :E<CR>
 nnoremap <Leader>m :NeomakeProject<CR>
 
-" for Colemak
+" Colemak mappings
 noremap J K
 noremap K L
 noremap L J
