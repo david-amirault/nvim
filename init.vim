@@ -1,20 +1,15 @@
 " David Amirault
 
-" reasonable defaults
-set clipboard+=unnamedplus
+" general settings
+set clipboard=unnamedplus
+set backupdir=stdpath('data').'/backup'
 set guicursor=a:blinkon100
-
-set nobackup
-set nowritebackup
-if !isdirectory($HOME.'/.config/nvim/tmp')
-    execute 'silent !mkdir -p '.$HOME.'/.config/nvim/tmp'
-endif
-set dir=$HOME/.config/nvim/tmp//
+set path+=**
 
 set relativenumber
 set wrap
 set linebreak
-set whichwrap+=<,>,h,l
+set whichwrap+=<,>,[,]
 
 set tabstop=4 softtabstop=4 shiftwidth=4
 set expandtab
@@ -24,15 +19,16 @@ set smartcase
 "---------------------------------------------------------------------------
 
 " plugins
-if !isdirectory($HOME.'/.config/nvim/plug')
-    execute 'silent !mkdir -p '.$HOME.'/.config/nvim/plug'
-    let autoload=$HOME.'/.local/share/nvim/site/autoload/plug.vim'
+let plugged=stdpath('data').'/plugged'
+if !isdirectory(plugged)
+    execute 'silent !mkdir -p '.plugged
+    let autoload=stdpath('data').'/site/autoload/plug.vim'
     let url='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     execute 'silent !curl -fLo '.autoload.' --create-dirs '.url
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin($HOME.'/.config/nvim/plug')
+call plug#begin(plugged)
 Plug 'neomake/neomake'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
