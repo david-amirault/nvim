@@ -1,15 +1,20 @@
 " David Amirault
 
 " general settings
+let g:backupdir=stdpath('data').'/backup'
+if !isdirectory(g:backupdir)
+    execute 'silent !mkdir -p '.g:backupdir
+endif
+let &backupdir=g:backupdir
+
 set clipboard=unnamedplus
-set backupdir=stdpath('data').'/backup'
 set guicursor=a:blinkon100
 set path+=**
 
 set relativenumber
 set wrap
 set linebreak
-set whichwrap+=<,>,[,]
+set whichwrap+=<,>,[,],h,l
 
 set tabstop=4 softtabstop=4 shiftwidth=4
 set expandtab
@@ -19,16 +24,16 @@ set smartcase
 "---------------------------------------------------------------------------
 
 " plugins
-let plugged=stdpath('data').'/plugged'
-if !isdirectory(plugged)
-    execute 'silent !mkdir -p '.plugged
-    let autoload=stdpath('data').'/site/autoload/plug.vim'
-    let url='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    execute 'silent !curl -fLo '.autoload.' --create-dirs '.url
+let g:plugged=stdpath('data').'/plugged'
+if !isdirectory(g:plugged)
+    execute 'silent !mkdir -p '.g:plugged
+    let g:autoload=stdpath('data').'/site/autoload/plug.vim'
+    let g:url='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    execute 'silent !curl -fLo '.g:autoload.' --create-dirs '.g:url
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin(plugged)
+call plug#begin(g:plugged)
 Plug 'neomake/neomake'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
@@ -56,7 +61,6 @@ autocmd VimLeave * set guicursor=a:ver25
 " filetype fixes
 autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab
-autocmd FileType md2 setlocal filetype=markdown
 
 " for Colemak
 let mapleader=","
@@ -86,5 +90,5 @@ nnoremap Y y$
 nnoremap <silent> <CR> :nohlsearch<CR>
 nnoremap <Leader>n :E<CR>
 nnoremap <Leader>m :Neomake!<CR>
-command -bang -nargs=* -complete=file Make Neomake! <args>
-command PU PlugUpdate | PlugUpgrade
+command! -bang -nargs=* -complete=file Make Neomake! <args>
+command! PU PlugUpdate | PlugUpgrade
