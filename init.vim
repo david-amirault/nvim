@@ -90,4 +90,5 @@ nnoremap Y y$
 nnoremap <silent> <CR> :nohlsearch<CR>
 nnoremap <Leader>n :E<CR>
 nnoremap <Leader>m :Neomake!<CR>
+command -bang -nargs=* -complete=file Make Neomake! <args>
 command PU PlugUpdate | PlugUpgrade
