@@ -1,12 +1,6 @@
 " David Amirault
 
 " general settings
-let g:backupdir=stdpath('data').'/backup'
-if !isdirectory(g:backupdir)
-    execute 'silent !mkdir -p '.g:backupdir
-endif
-let &backupdir=g:backupdir
-
 set clipboard=unnamedplus
 set pastetoggle=<F2>
 set guicursor=a:blinkon100
@@ -22,9 +16,14 @@ set expandtab
 set ignorecase
 set smartcase
 
-"---------------------------------------------------------------------------
+" backup directory
+let g:backupdir=stdpath('data').'/backup'
+if !isdirectory(g:backupdir)
+    execute 'silent !mkdir -p '.g:backupdir
+endif
+let &backupdir=g:backupdir
 
-" plugins
+" plugin initialization
 let g:plugged=stdpath('data').'/plugged'
 if !isdirectory(g:plugged)
     execute 'silent !mkdir -p '.g:plugged
@@ -34,6 +33,7 @@ if !isdirectory(g:plugged)
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+"plugins
 call plug#begin(g:plugged)
 Plug 'neomake/neomake'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
@@ -43,8 +43,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 call plug#end()
-
-"---------------------------------------------------------------------------
 
 " eye candy
 let g:airline_theme='solarized'
@@ -64,7 +62,6 @@ autocmd FileType make setlocal noexpandtab
 
 " for Colemak
 let mapleader=","
-noremap ; :
 noremap J K
 noremap K L
 noremap L J
@@ -86,6 +83,7 @@ noremap <Leader>k <C-w>j
 noremap <Leader>t zt
 noremap <Leader>b zb
 noremap <Leader><Leader> zz
+noremap ; :
 noremap tn <Esc>
 inoremap tn <Esc>
 inoremap {} {<CR>}<Esc>O
