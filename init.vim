@@ -61,9 +61,27 @@ autocmd VimLeave * set guicursor=a:ver25
 autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab
 
-" for Colemak
+" commands
+command! -bang -nargs=* -complete=file Make NeomakeProject <args>
+command! PU PlugUpdate | PlugUpgrade
+
+" for convenience
 let mapleader=","
 noremap , <Nop>
+noremap <Leader>t zt
+noremap <Leader>b zb
+noremap <Leader><Leader> zz
+noremap <Space> :
+noremap : ,
+vnoremap tn <Esc>
+inoremap tn <Esc>
+inoremap {} {<CR>}<Esc>O
+nnoremap Y y$
+nnoremap <silent> <CR> :nohlsearch<CR>
+nnoremap <Leader>n :E<CR>
+nnoremap <Leader>m :NeomakeProject<CR>
+
+" for Colemak
 noremap J K
 noremap K L
 noremap L J
@@ -80,19 +98,3 @@ noremap <Leader>l <C-w>l
 noremap <Leader>j <C-w>h
 noremap <Leader>h <C-w>k
 noremap <Leader>k <C-w>j
-
-" for convenience
-noremap <Leader>t zt
-noremap <Leader>b zb
-noremap <Leader><Leader> zz
-noremap <Space> :
-noremap : ,
-vnoremap tn <Esc>
-inoremap tn <Esc>
-inoremap {} {<CR>}<Esc>O
-nnoremap Y y$
-nnoremap <silent> <CR> :nohlsearch<CR>
-nnoremap <Leader>n :E<CR>
-nnoremap <Leader>m :Neomake!<CR>
-command! -bang -nargs=* -complete=file Make Neomake! <args>
-command! PU PlugUpdate | PlugUpgrade
