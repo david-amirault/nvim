@@ -83,8 +83,9 @@ noremap <Leader>k <C-w>j
 noremap <Leader>t zt
 noremap <Leader>b zb
 noremap <Leader><Leader> zz
-noremap ; :
-noremap tn <Esc>
+noremap <Space> :
+noremap : ,
+vnoremap tn <Esc>
 inoremap tn <Esc>
 inoremap {} {<CR>}<Esc>O
 nnoremap Y y$
