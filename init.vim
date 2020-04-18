@@ -22,6 +22,7 @@ if !isdirectory(g:backupdir)
     execute 'silent !mkdir -p '.g:backupdir
 endif
 let &backupdir=g:backupdir
+let g:netrw_home=stdpath('data').'/netrw'
 
 " plugin initialization
 let g:plugged=stdpath('data').'/plugged'
@@ -62,6 +63,7 @@ autocmd FileType make setlocal noexpandtab
 
 " for Colemak
 let mapleader=","
+noremap , <Nop>
 noremap J K
 noremap K L
 noremap L J
