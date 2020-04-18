@@ -8,6 +8,7 @@ endif
 let &backupdir=g:backupdir
 
 set clipboard=unnamedplus
+set pastetoggle=<F2>
 set guicursor=a:blinkon100
 set background=dark
 
