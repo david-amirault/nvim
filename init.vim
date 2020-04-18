@@ -9,7 +9,7 @@ let &backupdir=g:backupdir
 
 set clipboard=unnamedplus
 set guicursor=a:blinkon100
-set path+=**
+set background=dark
 
 set relativenumber
 set wrap
@@ -49,7 +49,6 @@ call plug#end()
 let g:airline_theme='solarized'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
-set background=dark
 colorscheme solarized
 
 " display fixes
@@ -74,6 +73,9 @@ noremap k j
 noremap gj gh
 noremap gh gk
 noremap gk gj
+noremap <C-w>j <C-w>h
+noremap <C-w>h <C-w>k
+noremap <C-w>k <C-w>j
 noremap <Leader>l <C-w>l
 noremap <Leader>j <C-w>h
 noremap <Leader>h <C-w>k
