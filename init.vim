@@ -37,10 +37,10 @@ endif
 
 "plugins
 call plug#begin(g:plugged)
-Plug 'neomake/neomake'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
@@ -63,7 +63,6 @@ autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab
 
 " commands
-command! -bang -nargs=* -complete=file Make NeomakeProject <args>
 command! PU PlugUpdate | PlugUpgrade
 
 " convenience mappings
@@ -79,7 +78,6 @@ inoremap tn <Esc>
 inoremap {} {<CR>}<Esc>O
 nnoremap Y y$
 nnoremap <silent> <CR> :nohlsearch<CR>
-nnoremap <Leader>m :NeomakeProject<CR>
 
 " Colemak mappings
 noremap J K
