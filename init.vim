@@ -1,20 +1,21 @@
 " David Amirault
 
-" general settings
-set clipboard=unnamedplus
-set pastetoggle=<F2>
-set guicursor=a:blinkon100
+" visual
 set background=dark
-
+set guicursor=a:blinkon100
 set relativenumber
+
+" wrap
 set wrap
 set linebreak
 set whichwrap+=<,>,[,],h,l
 
+" tab
 set tabstop=4 softtabstop=4 shiftwidth=4
 set expandtab
-set ignorecase
-set smartcase
+
+" paste
+set pastetoggle=<F2>
 
 " default directories
 let g:backupdir=stdpath('data').'/backup'
@@ -54,7 +55,7 @@ colorscheme solarized
 " display fixes
 match LineNr /\s\+$/
 autocmd bufenter * highlight CursorLineNr ctermfg=10 ctermbg=0
-autocmd bufenter * set vb t_vb=
+autocmd bufenter * set visualbell t_vb=
 autocmd VimLeave * set guicursor=a:ver25
 
 " filetype fixes
@@ -78,7 +79,6 @@ inoremap tn <Esc>
 inoremap {} {<CR>}<Esc>O
 nnoremap Y y$
 nnoremap <silent> <CR> :nohlsearch<CR>
-nnoremap <Leader>n :E<CR>
 nnoremap <Leader>m :NeomakeProject<CR>
 
 " Colemak mappings
