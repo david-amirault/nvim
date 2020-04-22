@@ -73,6 +73,7 @@ noremap <Leader>b zb
 noremap <Leader><Leader> zz
 noremap <Space> :
 noremap : ,
+tnoremap tn <C-\><C-n>
 vnoremap tn <Esc>
 inoremap tn <Esc>
 inoremap {} {<CR>}<Esc>O
