@@ -2,7 +2,7 @@
 
 " visual
 set background=dark
-set guicursor=a:blinkon100
+set guicursor+=a:blinkon100
 set relativenumber
 
 " wrap
