@@ -17,6 +17,10 @@ set expandtab
 " paste
 set pastetoggle=<F2>
 
+" search
+set ignorecase
+set smartcase
+
 " default directories
 let g:backupdir=stdpath('data').'/backup'
 if !isdirectory(g:backupdir)
@@ -39,6 +43,8 @@ endif
 call plug#begin(g:plugged)
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
@@ -61,6 +67,7 @@ autocmd VimLeave * set guicursor=a:ver25
 " filetype fixes
 autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab
+autocmd FileType c,cpp setlocal commentstring=//\ %s
 
 " commands
 command! PU PlugUpdate | PlugUpgrade
@@ -71,6 +78,10 @@ noremap , <Nop>
 noremap <Leader>t zt
 noremap <Leader>b zb
 noremap <Leader><Leader> zz
+noremap <Leader>h <C-w>h
+noremap <Leader>j <C-w>j
+noremap <Leader>k <C-w>k
+noremap <Leader>l <C-w>l
 noremap <Space> :
 noremap : ,
 tnoremap tn <C-\><C-n>
@@ -79,21 +90,4 @@ inoremap tn <Esc>
 inoremap {} {<CR>}<Esc>O
 nnoremap Y y$
 nnoremap <silent> <CR> :nohlsearch<CR>
-
-" Colemak mappings
-noremap J K
-noremap K L
-noremap L J
-noremap j h
-noremap h k
-noremap k j
-noremap gj gh
-noremap gh gk
-noremap gk gj
-noremap <C-w>j <C-w>h
-noremap <C-w>h <C-w>k
-noremap <C-w>k <C-w>j
-noremap <Leader>l <C-w>l
-noremap <Leader>j <C-w>h
-noremap <Leader>h <C-w>k
-noremap <Leader>k <C-w>j
+nnoremap <silent> <Leader>p :GFiles<CR>
