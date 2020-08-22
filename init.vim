@@ -1,5 +1,9 @@
 " David Amirault
 
+" ================
+" General Settings
+" ================
+
 " visual
 set background=dark
 set guicursor+=a:blinkon100
@@ -14,12 +18,19 @@ set whichwrap+=<,>,[,],h,l
 set tabstop=4 softtabstop=4 shiftwidth=4
 set expandtab
 
-" paste
-set pastetoggle=<F2>
-
 " search
 set ignorecase
 set smartcase
+
+" paste
+set pastetoggle=<F2>
+
+" buffers
+set hidden
+
+" ====================
+" Plugin Configuration
+" ====================
 
 " default directories
 let g:backupdir=stdpath('data').'/backup'
@@ -52,6 +63,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 call plug#end()
 
+" ================
+" Display Settings
+" ================
+
 " eye candy
 let g:airline_theme='solarized'
 let g:airline_powerline_fonts=1
@@ -64,17 +79,27 @@ autocmd bufenter * highlight CursorLineNr ctermfg=10 ctermbg=0
 autocmd bufenter * set visualbell t_vb=
 autocmd VimLeave * set guicursor=a:ver25
 
+" ========
+" Commands
+" ========
+
 " filetype fixes
 autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab
 autocmd FileType c,cpp setlocal commentstring=//\ %s
 
-" commands
+" software update
 command! PU PlugUpdate | PlugUpgrade
 
-" convenience mappings
+" ========
+" Mappings
+" ========
+
+" leader
 let mapleader=","
 noremap , <Nop>
+
+" navigation
 noremap <Leader>t zt
 noremap <Leader>b zb
 noremap <Leader><Leader> zz
@@ -82,12 +107,18 @@ noremap <Leader>h <C-w>h
 noremap <Leader>j <C-w>j
 noremap <Leader>k <C-w>k
 noremap <Leader>l <C-w>l
+
+" convenience mappings
 noremap <Space> :
 noremap : ,
-tnoremap tn <C-\><C-n>
-vnoremap tn <Esc>
-inoremap tn <Esc>
 inoremap {} {<CR>}<Esc>O
 nnoremap Y y$
 nnoremap <silent> <CR> :nohlsearch<CR>
+
+" escape
+tnoremap tn <C-\><C-n>
+vnoremap tn <Esc>
+inoremap tn <Esc>
+
+" fuzzy find
 nnoremap <silent> <Leader>p :GFiles<CR>
