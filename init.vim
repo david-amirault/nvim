@@ -71,6 +71,7 @@ call plug#end()
 let g:airline_theme='solarized'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 colorscheme solarized
 
 " display fixes
