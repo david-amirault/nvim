@@ -71,6 +71,7 @@ call plug#end()
 let g:airline_theme='solarized'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
+let g:netrw_fastbrowse=0
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 colorscheme solarized
 
@@ -85,6 +86,7 @@ autocmd VimLeave * set guicursor=a:ver25
 " ========
 
 " filetype fixes
+autocmd FileType netrw setlocal bufhidden=wipe
 autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab
 autocmd FileType c,cpp setlocal commentstring=//\ %s
