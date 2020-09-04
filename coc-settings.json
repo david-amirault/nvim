@@ -1,0 +1,16 @@
+{
+    "npm.binPath": "/path/to/npm",
+    "languageserver": {
+        "ccls": {
+            "filetypes": ["c", "cpp", "objc", "objcpp"],
+            "initializationOptions": {
+                "index": {
+                    "initialBlacklist": [
+                        ".*"
+                    ],
+                    "threads": 2
+                }
+            }
+        }
+    }
+}
