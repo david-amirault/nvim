@@ -121,7 +121,6 @@ noremap <Leader>l <C-w>l
 " convenience mappings
 noremap <Space> :
 noremap : ,
-inoremap {} {<CR>}<Esc>O
 nnoremap Y y$
 nnoremap <silent> <CR> :nohlsearch<CR>
 
