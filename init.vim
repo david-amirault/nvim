@@ -25,8 +25,9 @@ set smartcase
 " paste
 set pastetoggle=<F2>
 
-" buffers
+" buffers and tabs
 set hidden
+set showtabline=0
 
 " ====================
 " Plugin Configuration
@@ -75,8 +76,6 @@ call plug#end()
 " eye candy
 let g:airline_theme='solarized'
 let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#ignore_bufadd_pat = 'defx|gundo|nerd_tree|startify|tagbar|undotree|vimfiler'
 let g:dispatch_no_tmux_make=1
 let g:netrw_fastbrowse=0
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
@@ -131,6 +130,7 @@ inoremap tn <Esc>
 
 " fuzzy find
 nnoremap <silent> <Leader>p :GFiles<CR>
+nnoremap <Leader>e :Buffers<CR>
 
 " copy to attached terminal using the yank(1) script:
 " https://github.com/sunaku/home/blob/master/bin/yank
