@@ -83,7 +83,6 @@ colorscheme solarized
 
 " display fixes
 match LineNr /\s\+$/
-autocmd bufenter * highlight CursorLineNr ctermfg=10 ctermbg=0
 autocmd bufenter * set visualbell t_vb=
 autocmd VimLeave * set guicursor=a:ver25
 
@@ -136,12 +135,12 @@ nnoremap <Leader>r :History:<CR>
 " copy to attached terminal using the yank(1) script:
 " https://github.com/sunaku/home/blob/master/bin/yank
 function! Yank(text) abort
-  let escape = system(stdpath('config').'/yank', a:text)
-  if v:shell_error
-    echoerr escape
-  else
-    call writefile([escape], '/dev/tty', 'b')
-  endif
+    let escape = system(stdpath('config').'/yank', a:text)
+    if v:shell_error
+        echoerr escape
+    else
+        call writefile([escape], '/dev/tty', 'b')
+    endif
 endfunction
 noremap <silent> <Leader>y y:<C-U>call Yank(@0)<CR>
 
@@ -151,7 +150,7 @@ noremap <silent> <Leader>y y:<C-U>call Yank(@0)<CR>
 
 " " coc completion
 " let g:python3_host_prog = '/usr/local/bin/python3.8'
-" let g:coc_node_path = '/home/john/.linuxbrew/bin/node'
+" let g:coc_node_path = '/path/to/node'
 
 " " coc extensions
 " let g:coc_global_extensions = [
