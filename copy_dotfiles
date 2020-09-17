@@ -1,0 +1,4 @@
+#!/bin/sh
+cp ./.bash_aliases ../../.bash_aliases
+cp ./.gitconfig ../../.gitconfig
+cp ./.tmux.conf ../../.tmux.conf
