@@ -129,7 +129,7 @@ inoremap tn <Esc>
 
 " fuzzy find
 nnoremap <Leader>p :GFiles<CR>
-nnoremap <Leader>e :Buffers<CR>
+nnoremap <Leader>s :Buffers<CR>
 nnoremap <Leader>r :History:<CR>
 
 " copy to attached terminal using the yank(1) script:
