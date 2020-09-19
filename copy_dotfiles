@@ -1,4 +1,5 @@
 #!/bin/sh
+cp -n ./.bashrc ../../.bashrc
 cp -n ./.bash_aliases ../../.bash_aliases
 cp -n ./.gitconfig ../../.gitconfig
 cp -n ./.tmux.conf ../../.tmux.conf
