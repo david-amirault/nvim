@@ -129,6 +129,7 @@ inoremap tn <Esc>
 
 " fuzzy find
 nnoremap <Leader>p :GFiles<CR>
+nnoremap <Leader>g :Rg<CR>
 nnoremap <Leader>s :Buffers<CR>
 nnoremap <Leader>r :History:<CR>
 
