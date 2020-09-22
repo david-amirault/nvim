@@ -173,9 +173,6 @@ noremap <silent> <Leader>y y:<C-U>call Yank(@0)<CR>
 "     return !col || getline('.')[col - 1] =~# '\s'
 " endfunction
 
-" " use <C-Space> to trigger completion
-" inoremap <silent> <expr> <C-Space> coc#refresh()
-
 " " use <CR> to confirm completion
 " if exists('*complete_info')
 "     inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -203,6 +200,9 @@ noremap <silent> <Leader>y y:<C-U>call Yank(@0)<CR>
 "         call CocAction('doHover')
 "     endif
 " endfunction
+
+" " rename symbol
+" nmap <Leader>n <Plug>(coc-rename)
 
 " " format selected code
 " xmap <Leader>f <Plug>(coc-format-selected)
