@@ -90,7 +90,6 @@ autocmd VimLeave * set guicursor=a:ver25
 " ========
 
 " filetype fixes
-autocmd FileType netrw setlocal bufhidden=wipe
 autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab
 autocmd FileType c,cpp setlocal commentstring=//\ %s
