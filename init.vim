@@ -41,8 +41,6 @@ call plug#begin(g:plugged)
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'voldikss/vim-floaterm'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -57,8 +55,6 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 let g:floaterm_width=0.9
 let g:floaterm_height=0.6
 let g:floaterm_gitcommit='split'
-let g:airline_powerline_fonts=1
-let g:airline_theme='solarized'
 
 " eye candy
 colorscheme solarized
