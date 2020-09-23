@@ -98,8 +98,7 @@ inoremap tn <Esc>
 
 " plugins
 let g:floaterm_keymap_toggle='<Leader>f'
-nnoremap <silent> - :FloatermSend cd %:h<CR>
-nnoremap <Leader>g :FloatermSend git 
+nnoremap  - :FloatermSend cd %:h<CR>:FloatermToggle<CR>
 nnoremap <Leader>p :GFiles<CR>
 nnoremap <Leader>s :Buffers<CR>
 nnoremap <Leader>r :History:<CR>
