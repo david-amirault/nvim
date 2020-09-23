@@ -5,14 +5,8 @@
 " ================
 
 " visual
-set background=dark
 set guicursor+=a:blinkon100
 set relativenumber
-
-" wrap
-set wrap
-set linebreak
-set whichwrap+=<,>,[,],h,l
 
 " tab
 set tabstop=4 softtabstop=4 shiftwidth=4
@@ -22,24 +16,15 @@ set expandtab
 set ignorecase
 set smartcase
 
-" paste
-set pastetoggle=<F2>
-
-" buffers and tabs
+" buffers
 set hidden
+
+" tab pages
 set showtabline=0
 
 " ====================
 " Plugin Configuration
 " ====================
-
-" default directories
-let g:backupdir=stdpath('data').'/backup'
-if !isdirectory(g:backupdir)
-    execute 'silent !mkdir -p '.g:backupdir
-endif
-let &backupdir=g:backupdir
-let g:netrw_home=stdpath('data').'/netrw'
 
 " plugin initialization
 let g:plugged=stdpath('data').'/plugged'
@@ -51,39 +36,33 @@ if !isdirectory(g:plugged)
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-"plugins
+" plugins
 call plug#begin(g:plugged)
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'voldikss/vim-floaterm'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'glts/vim-textobj-comment'
 Plug 'Julian/vim-textobj-variable-segment'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-vinegar'
 call plug#end()
 
-" ================
-" Display Settings
-" ================
+" settings
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+let g:floaterm_width=0.9
+let g:floaterm_height=0.6
+let g:floaterm_gitcommit='split'
+let g:airline_powerline_fonts=1
+let g:airline_theme='solarized'
 
 " eye candy
-let g:airline_theme='solarized'
-let g:airline_powerline_fonts=1
-let g:dispatch_no_tmux_make=1
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 colorscheme solarized
-
-" display fixes
 match LineNr /\s\+$/
-autocmd bufenter * set visualbell t_vb=
-autocmd VimLeave * set guicursor=a:ver25
 
 " ========
 " Commands
@@ -93,6 +72,7 @@ autocmd VimLeave * set guicursor=a:ver25
 autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab
 autocmd FileType c,cpp setlocal commentstring=//\ %s
+autocmd VimLeave * set guicursor=a:ver25
 
 " software update
 command! PU PlugUpdate | PlugUpgrade
@@ -109,10 +89,7 @@ noremap , <Nop>
 noremap <Leader>t zt
 noremap <Leader>b zb
 noremap <Leader><Leader> zz
-noremap <Leader>h <C-w>h
-noremap <Leader>j <C-w>j
-noremap <Leader>k <C-w>k
-noremap <Leader>l <C-w>l
+noremap <Leader>w <C-w>
 
 " convenience mappings
 noremap <Space> :
@@ -125,9 +102,11 @@ tnoremap tn <C-\><C-n>
 vnoremap tn <Esc>
 inoremap tn <Esc>
 
-" fuzzy find
+" plugins
+let g:floaterm_keymap_toggle='<Leader>f'
+nnoremap <silent> - :FloatermSend cd %:h<CR>
+nnoremap <Leader>g :FloatermSend git 
 nnoremap <Leader>p :GFiles<CR>
-nnoremap <Leader>g :Rg<CR>
 nnoremap <Leader>s :Buffers<CR>
 nnoremap <Leader>r :History:<CR>
 
@@ -200,8 +179,8 @@ noremap <silent> <Leader>y y:<C-U>call Yank(@0)<CR>
 " endfunction
 
 " " rename symbol
-" nmap <Leader>n <Plug>(coc-rename)
+" nmap <silent> gn <Plug>(coc-rename)
 
 " " format selected code
-" xmap <Leader>f <Plug>(coc-format-selected)
-" nmap <Leader>f <Plug>(coc-format-selected)
+" xmap <silent> gq <Plug>(coc-format-selected)
+" nmap <silent> gq <Plug>(coc-format-selected)
