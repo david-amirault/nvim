@@ -10,6 +10,13 @@ set -o emacs
 # line editor in sh(1), e.g., ESC to go into normal mode.
 # set -o vi
 
+# set prompt: ``username@hostname:path$ ''
+PS1="\u@\h:\w"
+case `id -u` in
+	0) PS1="${PS1}# ";;
+	*) PS1="${PS1}$ ";;
+esac
+
 source ~/.bash_aliases
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
