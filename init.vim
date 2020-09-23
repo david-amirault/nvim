@@ -19,9 +19,6 @@ set smartcase
 " buffers
 set hidden
 
-" tab pages
-set showtabline=0
-
 " ====================
 " Plugin Configuration
 " ====================
