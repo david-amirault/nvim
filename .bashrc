@@ -17,6 +17,10 @@ case `id -u` in
 	*) PS1="${PS1}$ ";;
 esac
 
+# solarized dir_colors
+eval `dircolors ~/.dircolors`
+
+source /usr/share/bash-completion/completions/git
 source ~/.bash_aliases
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
