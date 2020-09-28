@@ -11,11 +11,7 @@ set -o emacs
 # set -o vi
 
 # set prompt: ``username@hostname:path$ ''
-PS1="\u@\h:\w"
-case `id -u` in
-	0) PS1="${PS1}# ";;
-	*) PS1="${PS1}$ ";;
-esac
+PS1="\u@\h:\[\e[34m\]\w\[\e[39m\]\$ "
 
 # solarized dir_colors
 eval `dircolors ~/.dircolors`
