@@ -1,0 +1,6 @@
+#!/bin/sh
+ln -s ./.bashrc ../../.bashrc
+ln -s ./.bash_aliases ../../.bash_aliases
+ln -s ./.dircolors ../../.dircolors
+ln -s ./.gitconfig ../../.gitconfig
+ln -s ./.tmux.conf ../../.tmux.conf

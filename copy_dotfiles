@@ -1,6 +1,0 @@
-#!/bin/sh
-cp -n ./.bashrc ../../.bashrc
-cp -n ./.bash_aliases ../../.bash_aliases
-cp -n ./.dircolors ../../.dircolors
-cp -n ./.gitconfig ../../.gitconfig
-cp -n ./.tmux.conf ../../.tmux.conf
