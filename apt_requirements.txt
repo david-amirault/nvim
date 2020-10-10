@@ -1,4 +1,5 @@
 curl
 neovim
+python3-pip
 ripgrep
 tmux
