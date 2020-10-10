@@ -1,0 +1,4 @@
+curl
+neovim
+ripgrep
+tmux
