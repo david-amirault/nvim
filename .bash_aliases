@@ -1,3 +1,6 @@
 alias ls="ls --color=auto"
-alias vim="nvim"
-alias ft="floaterm"
+if [[ -z "${VIM}" ]]; then
+    alias vim="nvim"
+else
+    alias vim="floaterm"
+fi
