@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 ln -rs .bashrc ~/.bashrc
 ln -rs .bash_aliases ~/.bash_aliases
 ln -rs .dircolors ~/.dircolors
