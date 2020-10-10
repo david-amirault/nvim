@@ -1,4 +1,4 @@
 #!/bin/bash
-apt install < apt_requirements.txt
+sudo apt install < apt_requirements.txt
 pip3 install -r pip_requirements.txt
 source ./link_dotfiles
