@@ -14,7 +14,7 @@ set -o emacs
 PS1="\u@\h:\[\e[34m\]\w\[\e[39m\]\$ "
 
 # solarized dir_colors
-eval `dircolors ~/.dircolors`
+eval $(dircolors ~/.dircolors)
 
 source /usr/share/bash-completion/completions/git
 source ~/.bash_aliases
