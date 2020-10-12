@@ -49,6 +49,7 @@ Plug 'Julian/vim-textobj-variable-segment'
 call plug#end()
 
 " eye candy
+let $GIT_EDITOR = 'nvr -cc split --remote-wait'
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 colorscheme solarized
 match LineNr /\s\+$/
