@@ -64,22 +64,13 @@ autocmd FileType make setlocal noexpandtab
 autocmd FileType c,cpp setlocal commentstring=//\ %s
 autocmd FileType gitcommit,gitrebase,gitconfig setlocal bufhidden=delete
 autocmd VimLeave * set guicursor=a:ver25
-autocmd VimEnter * call Popterm()
+autocmd VimEnter * call Popterm(0)
 
 " popup terminal
 function! Popterm(...)
+    " create popterm if absent
     let pnr = bufnr('popterm')
-    if pnr > 0
-        if pnr == bufnr('%')
-            execute "normal \<C-^>"
-        else
-            execute pnr.'buffer'
-            if a:0 > 0
-                call jobsend(b:terminal_job_id, a:1)
-            endif
-            startinsert
-        endif
-    else
+    if pnr <= 0
         terminal
         keepalt file popterm
         if expand('#') == 'popterm'
@@ -87,6 +78,19 @@ function! Popterm(...)
         else
             execute "normal \<C-^>"
         endif
+        let pnr = bufnr('popterm')
+    endif
+    " run command if given
+    let cnr = bufnr('%')
+    execute pnr.'buffer'
+    if a:0 > 1
+        call jobsend(b:terminal_job_id, a:2)
+    endif
+    " toggle state if needed
+    if (a:0 > 0 && a:1 == 0) || (a:0 == 0 && pnr == cnr)
+        execute "normal \<C-^>"
+    else
+        startinsert
     endif
 endfunction
 
@@ -122,8 +126,8 @@ inoremap tn <Esc>
 " plugins
 nnoremap <silent> <Leader>f :call Popterm()<CR>
 tnoremap <silent> <Leader>f <C-\><C-n>:call Popterm()<CR>
-nnoremap - :call Popterm('cd '.expand('%:p:h')."\n")<CR>
-nnoremap <Leader>m :call Popterm('make ')<CR>
+nnoremap - :call Popterm(1, 'cd '.expand('%:p:h')."\n")<CR>
+nnoremap <Leader>m :call Popterm(1, 'make ')<CR>
 nnoremap <Leader>p :GFiles<CR>
 nnoremap <Leader>g :Rg<Space>
 nnoremap <Leader>s :Buffers<CR>
