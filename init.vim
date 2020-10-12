@@ -38,7 +38,6 @@ call plug#begin(g:plugged)
 " Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'voldikss/vim-floaterm'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
@@ -49,13 +48,8 @@ Plug 'glts/vim-textobj-comment'
 Plug 'Julian/vim-textobj-variable-segment'
 call plug#end()
 
-" settings
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-let g:floaterm_width=0.9
-let g:floaterm_height=0.6
-let g:floaterm_gitcommit='split'
-
 " eye candy
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 colorscheme solarized
 match LineNr /\s\+$/
 
@@ -67,17 +61,44 @@ match LineNr /\s\+$/
 autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab
 autocmd FileType c,cpp setlocal commentstring=//\ %s
+autocmd FileType gitcommit,gitrebase,gitconfig setlocal bufhidden=delete
 autocmd VimLeave * set guicursor=a:ver25
+autocmd VimEnter * call Popterm()
+
+" popup terminal
+function! Popterm(...)
+    let pnr = bufnr('popterm')
+    if pnr > 0
+        if pnr == bufnr('%')
+            execute "normal \<C-^>"
+        else
+            execute pnr.'buffer'
+            if a:0 > 0
+                call jobsend(b:terminal_job_id, a:1)
+            endif
+            startinsert
+        endif
+    else
+        terminal
+        keepalt file popterm
+        if expand('#') == 'popterm'
+            enew
+        else
+            execute "normal \<C-^>"
+        endif
+    endif
+endfunction
 
 " software update
 command! PU PlugUpdate | PlugUpgrade
+command! PC PlugClean
 
 " ========
 " Mappings
 " ========
 
 " leader
-let mapleader=","
+let mapleader=','
 noremap , <Nop>
 
 " navigation
@@ -98,9 +119,10 @@ vnoremap tn <Esc>
 inoremap tn <Esc>
 
 " plugins
-let g:floaterm_keymap_toggle='<Leader>f'
-nnoremap - :FloatermSend cd %:p:h<CR>:FloatermToggle<CR>
-nnoremap <Leader>m :FloatermSend make<Space>
+nnoremap <silent> <Leader>f :call Popterm()<CR>
+tnoremap <silent> <Leader>f <C-\><C-n>:call Popterm()<CR>
+nnoremap - :call Popterm('cd '.expand('%:p:h')."\n")<CR>
+nnoremap <Leader>m :call Popterm('make ')<CR>
 nnoremap <Leader>p :GFiles<CR>
 nnoremap <Leader>g :Rg<Space>
 nnoremap <Leader>s :Buffers<CR>
