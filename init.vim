@@ -176,10 +176,6 @@ noremap <silent> <Leader>y y:<C-U>call Yank(@0)<CR>
 "     inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " endif
 
-" " navigate diagnostics
-" nmap <silent> [g <Plug>(coc-diagnostic-prev)
-" nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
 " " goto code navigation
 " nmap <silent> gd <Plug>(coc-definition)
 " nmap <silent> gy <Plug>(coc-type-definition)
