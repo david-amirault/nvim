@@ -64,7 +64,6 @@ autocmd FileType make setlocal noexpandtab
 autocmd FileType c,cpp setlocal commentstring=//\ %s
 autocmd FileType gitcommit,gitrebase,gitconfig setlocal bufhidden=delete
 autocmd VimLeave * set guicursor=a:ver25
-autocmd VimEnter * call Popterm(0)
 
 " popup terminal
 function! Popterm(...)
