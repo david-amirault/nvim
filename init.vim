@@ -54,6 +54,7 @@ call plug#end()
 " eye candy
 let $GIT_EDITOR = 'nvr -cc split --remote-wait'
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+let g:vim_textobj_parameter_mapping = 'a'
 colorscheme solarized
 match LineNr /\s\+$/
 
