@@ -16,10 +16,11 @@ PS1="\u@\h:\[\e[34m\]\w\[\e[39m\]\$ "
 # solarized dir_colors
 eval $(dircolors ~/.dircolors)
 
-source /usr/share/bash-completion/completions/git
-source ~/.bash_aliases
+export PATH=$PATH:$HOME/.local/share/nvim/plugged/fzf/bin
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source /usr/share/bash-completion/completions/git
+source ~/.local/share/nvim/plugged/fzf/shell/key-bindings.bash
+source ~/.bash_aliases
 
 # We use \C-s for fzf file location.
 # stty -ixon is required to disable the default \C-s behavior.
