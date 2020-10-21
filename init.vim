@@ -156,11 +156,6 @@ noremap <silent> <Leader>y y:<C-U>call Yank(@0)<CR>
 " let g:python3_host_prog = '/usr/local/bin/python3.8'
 " let g:coc_node_path = '/path/to/node'
 
-" " coc extensions
-" let g:coc_global_extensions = [
-"         \ 'coc-pyright',
-"         \ ]
-
 " " 300ms trigger latency
 " set updatetime=300
 
