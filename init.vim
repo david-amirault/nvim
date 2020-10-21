@@ -5,6 +5,7 @@
 " ================
 
 " visual
+set mouse=a
 set guicursor+=a:blinkon100
 set relativenumber
 
