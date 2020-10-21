@@ -10,8 +10,8 @@ set -o emacs
 # line editor in sh(1), e.g., ESC to go into normal mode.
 # set -o vi
 
-# set prompt: ``username@hostname:path$ ''
-PS1="\u@\h:\[\e[34m\]\w\[\e[39m\]\$ "
+# set prompt: ``username@hostname:path$ |''
+PS1="\u@\h:\[\e[34m\]\w\[\e[39m\]\$ \e[5 q"
 
 # solarized dir_colors
 eval $(dircolors ~/.dircolors)
