@@ -155,14 +155,14 @@ nnoremap <Leader>r :History:<CR>
 " Code Completion
 " ===============
 
-" coc completion
+" " coc completion
 " let g:python3_host_prog = "/path/to/python"
 " let g:coc_node_path = "/path/to/node"
 
-" 300ms trigger latency
+" " 300ms trigger latency
 " set updatetime=300
 
-" use <Tab> for trigger completion with characters ahead and navigate
+" " use <Tab> for trigger completion with characters ahead and navigate
 " inoremap <silent> <expr> <Tab>
 "         \ pumvisible() ? "\<C-n>" :
 "         \ <SID>check_back_space() ? "\<Tab>" :
@@ -174,20 +174,20 @@ nnoremap <Leader>r :History:<CR>
 "     return !col || getline(".")[col - 1] =~# '\s'
 " endfunction
 
-" use <CR> to confirm completion
+" " use <CR> to confirm completion
 " if exists("*complete_info")
 "     inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 " else
 "     inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " endif
 
-" goto code navigation
+" " goto code navigation
 " nmap <silent> gd <Plug>(coc-definition)
 " nmap <silent> gy <Plug>(coc-type-definition)
 " nmap <silent> gi <Plug>(coc-implementation)
 " nmap <silent> gr <Plug>(coc-references)
 
-" show documentation
+" " show documentation
 " nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " function! s:show_documentation()
@@ -198,9 +198,9 @@ nnoremap <Leader>r :History:<CR>
 "     endif
 " endfunction
 
-" rename symbol
+" " rename symbol
 " nmap <silent> gn <Plug>(coc-rename)
 
-" format selected code
+" " format selected code
 " xmap <silent> gq <Plug>(coc-format-selected)
 " nmap <silent> gq <Plug>(coc-format-selected)
