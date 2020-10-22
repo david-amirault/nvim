@@ -161,6 +161,7 @@ nnoremap - :call Popterm(1, "cd ".expand("%:p:h")."\n")<CR>
 nnoremap <Leader>m :call Popterm(1, "make ")<CR>
 nnoremap <silent> <expr> <Leader>y SetYankOp()
 nnoremap <silent> <expr> <Leader>yy SetYankOp()."_"
+nnoremap <silent> <expr> <Leader>Y SetYankOp()."$"
 vnoremap <silent> <Leader>y :<C-u>call YankOp(visualmode(), 1)<CR>
 
 " fuzzy find
