@@ -109,6 +109,22 @@ function! Yank(text) abort
     endif
 endfunction
 
+function! YankOp(type, ...)
+    if a:0
+        silent execute "normal! gvy"
+    elseif a:type == "line"
+        silent execute "normal! '[V']y"
+    else
+        silent execute "normal! `[v`]y"
+    endif
+    call Yank(@0)
+endfunction
+
+function! SetYankOp()
+    set opfunc=YankOp
+    return "g@"
+endfun
+
 " software update
 command! PU PlugUpdate | PlugUpgrade
 command! PC PlugClean
@@ -141,9 +157,11 @@ inoremap tn <Esc>
 " vimscript
 nnoremap <silent> <Leader>f :call Popterm()<CR>
 tnoremap <silent> <Leader>f <C-\><C-n>:call Popterm()<CR>
-noremap <silent> <Leader>y y:<C-U>call Yank(@0)<CR>
 nnoremap - :call Popterm(1, "cd ".expand("%:p:h")."\n")<CR>
 nnoremap <Leader>m :call Popterm(1, "make ")<CR>
+nnoremap <silent> <expr> <Leader>y SetYankOp()
+nnoremap <silent> <expr> <Leader>yy SetYankOp()."_"
+vnoremap <silent> <Leader>y :<C-u>call YankOp(visualmode(), 1)<CR>
 
 " fuzzy find
 nnoremap <Leader>p :GFiles<CR>
