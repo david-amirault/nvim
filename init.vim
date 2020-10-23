@@ -113,7 +113,9 @@ function! YankOp(type, ...)
     if a:0
         silent execute "normal! gvy"
     elseif a:type == "line"
+        let save_pos = getpos(".")
         silent execute "normal! '[V']y"
+        call setpos(".", save_pos)
     else
         silent execute "normal! `[v`]y"
     endif
