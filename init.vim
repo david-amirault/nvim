@@ -4,7 +4,7 @@
 " General Settings
 " ================
 
-" visual
+" mouse
 set mouse=a
 set guicursor+=a:blinkon100
 set relativenumber
@@ -52,23 +52,16 @@ Plug 'Julian/vim-textobj-variable-segment'
 Plug 'sgur/vim-textobj-parameter'
 call plug#end()
 
-" eye candy
+" settings
 let $GIT_EDITOR = "nvr -cc split --remote-wait"
 let g:fzf_layout = { "window": { "width": 0.9, "height": 0.6 } }
 let g:vim_textobj_parameter_mapping = "a"
 colorscheme solarized
 match LineNr /\s\+$/
 
-" ========
-" Commands
-" ========
-
-" filetype fixes
-autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
-autocmd FileType make setlocal noexpandtab
-autocmd FileType c,cpp setlocal commentstring=//\ %s
-autocmd FileType gitcommit,gitrebase,gitconfig setlocal bufhidden=delete
-autocmd VimLeave * set guicursor=a:ver25
+" =========
+" Vimscript
+" =========
 
 " popup terminal
 function! Popterm(...)
@@ -127,7 +120,14 @@ function! SetYankOp()
     return "g@"
 endfun
 
-" software update
+" autocommands
+autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType make setlocal noexpandtab
+autocmd FileType c,cpp setlocal commentstring=//\ %s
+autocmd FileType gitcommit,gitrebase,gitconfig setlocal bufhidden=delete
+autocmd VimLeave * set guicursor=a:ver25
+
+" commands
 command! PU PlugUpdate | PlugUpgrade
 command! PC PlugClean
 
@@ -139,7 +139,7 @@ command! PC PlugClean
 let mapleader=","
 noremap , <Nop>
 
-" navigation
+" scroll
 noremap <Leader>t zt
 noremap <Leader>b zb
 noremap <Leader><Leader> zz
@@ -148,7 +148,6 @@ noremap <Leader>w <C-w>
 " convenience mappings
 noremap <Space> :
 noremap : ,
-nnoremap Y y$
 nnoremap <silent> <CR> :nohlsearch<CR>
 
 " escape
@@ -156,11 +155,14 @@ tnoremap tn <C-\><C-n>
 vnoremap tn <Esc>
 inoremap tn <Esc>
 
-" vimscript
+" popup terminal
 nnoremap <silent> <Leader>f :call Popterm()<CR>
 tnoremap <silent> <Leader>f <C-\><C-n>:call Popterm()<CR>
 nnoremap - :call Popterm(1, "cd ".expand("%:p:h")."\n")<CR>
 nnoremap <Leader>m :call Popterm(1, "make ")<CR>
+
+" yank
+nnoremap Y y$
 nnoremap <silent> <expr> <Leader>y SetYankOp()
 nnoremap <silent> <expr> <Leader>yy SetYankOp()."_"
 nnoremap <silent> <expr> <Leader>Y SetYankOp()."$"
