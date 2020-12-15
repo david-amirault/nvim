@@ -220,8 +220,8 @@ nnoremap <Leader>r :History:<CR>
 " endfunction
 
 " " rename symbol
-" nmap <silent> gn <Plug>(coc-rename)
+" nmap <silent> <Leader>n <Plug>(coc-rename)
 
 " " format selected code
-" xmap <silent> gq <Plug>(coc-format-selected)
-" nmap <silent> gq <Plug>(coc-format-selected)
+" xmap <silent> <Leader>q <Plug>(coc-format-selected)
+" nmap <silent> <Leader>q <Plug>(coc-format-selected)
