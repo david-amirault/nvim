@@ -1,5 +1,4 @@
 {
-    "npm.binPath": "/path/to/npm",
     "languageserver": {
         "ccls": {
             "filetypes": ["c", "cpp", "objc", "objcpp"],
@@ -14,7 +13,7 @@
         },
         "pylance": {
             "filetypes": ["python"],
-            "command": "/path/to/node",
+            "command": "node",
             "args": ["/path/to/pylance/dist/server.bundle.js", "--stdio"],
             "initializationOptions": {},
             "settings": {
