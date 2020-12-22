@@ -6,3 +6,4 @@ else
 fi
 alias t="tmux attach -dt"
 alias tn="tmux new -s"
+alias tls="tmux ls"
