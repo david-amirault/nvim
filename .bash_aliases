@@ -6,4 +6,5 @@ else
 fi
 alias t="tmux attach -dt"
 alias tn="tmux new -s"
+alias tx="tmux kill-session -t"
 alias tls="tmux ls"
