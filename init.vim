@@ -178,7 +178,6 @@ nnoremap <Leader>r :History:<CR>
 
 " " coc completion
 " let g:python3_host_prog = "/path/to/python"
-" let g:coc_node_path = "/path/to/node"
 
 " " 300ms trigger latency
 " set updatetime=300
