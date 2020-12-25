@@ -4,6 +4,5 @@ if [[ -z "${VIM}" ]]; then
 else
     alias vim="nvr"
 fi
-alias t="tmux attach -dt"
-alias tn="tmux new -s"
+alias t="tmux new -ADs"
 alias tls="tmux ls"
