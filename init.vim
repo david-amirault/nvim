@@ -34,6 +34,8 @@ if !isdirectory(g:plugged)
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+let g:textobj_python_no_default_key_mappings = 1
+
 " plugins
 call plug#begin(g:plugged)
 " Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -45,8 +47,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-textobj-line'
+Plug 'bps/vim-textobj-python'
 Plug 'glts/vim-textobj-comment'
 Plug 'Julian/vim-textobj-variable-segment'
 Plug 'sgur/vim-textobj-parameter'
@@ -58,6 +59,20 @@ let g:fzf_layout = { "window": { "width": 0.9, "height": 0.6 } }
 let g:vim_textobj_parameter_mapping = "a"
 colorscheme solarized
 match LineNr /\s\+$/
+call textobj#user#map('python', {
+        \   'class': {
+        \     'select-a': '<buffer>aC',
+        \     'select-i': '<buffer>iC',
+        \     'move-n': '<buffer>]pC',
+        \     'move-p': '<buffer>[pC',
+        \   },
+        \   'function': {
+        \     'select-a': '<buffer>af',
+        \     'select-i': '<buffer>if',
+        \     'move-n': '<buffer>]pf',
+        \     'move-p': '<buffer>[pf',
+        \   }
+        \ })
 
 " =========
 " Vimscript
