@@ -34,8 +34,6 @@ if !isdirectory(g:plugged)
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-let g:textobj_python_no_default_key_mappings = 1
-
 " plugins
 call plug#begin(g:plugged)
 " Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -56,23 +54,10 @@ call plug#end()
 " settings
 let $GIT_EDITOR = "nvr -cc split --remote-wait"
 let g:fzf_layout = { "window": { "width": 0.9, "height": 0.6 } }
+let g:textobj_python_no_default_key_mappings = 1
 let g:vim_textobj_parameter_mapping = "a"
 colorscheme solarized
 match LineNr /\s\+$/
-call textobj#user#map('python', {
-        \   'class': {
-        \     'select-a': '<buffer>aC',
-        \     'select-i': '<buffer>iC',
-        \     'move-n': '<buffer>]pC',
-        \     'move-p': '<buffer>[pC',
-        \   },
-        \   'function': {
-        \     'select-a': '<buffer>af',
-        \     'select-i': '<buffer>if',
-        \     'move-n': '<buffer>]pf',
-        \     'move-p': '<buffer>[pf',
-        \   }
-        \ })
 
 " =========
 " Vimscript
@@ -133,11 +118,32 @@ function! SetYankOp()
     return "g@"
 endfun
 
+" vim-textobj-python mappings
+function! PythonStartup()
+    call textobj#user#map('python', {
+            \     'class': {
+            \         'select-a': '<buffer>al',
+            \         'select-i': '<buffer>il',
+            \         'move-n': '<buffer>]pl',
+            \         'move-p': '<buffer>[pl',
+            \     },
+            \     'function': {
+            \         'select-a': '<buffer>af',
+            \         'select-i': '<buffer>if',
+            \         'move-n': '<buffer>]pf',
+            \         'move-p': '<buffer>[pf',
+            \     }
+            \ })
+    xnoremap <silent> <buffer> gq gq
+    nnoremap <silent> <buffer> gq gq
+endfunction
+
 " autocommands
 autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab
 autocmd FileType c,cpp setlocal commentstring=//\ %s
 autocmd FileType gitcommit,gitrebase,gitconfig setlocal bufhidden=delete
+autocmd FileType python call PythonStartup()
 autocmd VimLeave * set guicursor=a:ver25
 
 " commands
@@ -234,8 +240,8 @@ nnoremap <Leader>r :History:<CR>
 " endfunction
 
 " " rename symbol
-" nmap <silent> <Leader>n <Plug>(coc-rename)
+" nmap <silent> gn <Plug>(coc-rename)
 
 " " format selected code
-" xmap <silent> <Leader>q <Plug>(coc-format-selected)
-" nmap <silent> <Leader>q <Plug>(coc-format-selected)
+" xmap <silent> gq <Plug>(coc-format-selected)
+" nmap <silent> gq <Plug>(coc-format-selected)
