@@ -36,7 +36,7 @@ endif
 
 " plugins
 call plug#begin(g:plugged)
-" Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'altercation/vim-colors-solarized'
@@ -197,51 +197,51 @@ nnoremap <Leader>r :History:<CR>
 " Code Completion
 " ===============
 
-" " coc completion
-" let g:python3_host_prog = "/path/to/python"
+" coc completion
+let g:python3_host_prog = "/path/to/python"
 
-" " 300ms trigger latency
-" set updatetime=300
+" 300ms trigger latency
+set updatetime=300
 
-" " use <Tab> for trigger completion with characters ahead and navigate
-" inoremap <silent> <expr> <Tab>
-"         \ pumvisible() ? "\<C-n>" :
-"         \ <SID>check_back_space() ? "\<Tab>" :
-"         \ coc#refresh()
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
+" use <Tab> for trigger completion with characters ahead and navigate
+inoremap <silent> <expr> <Tab>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<Tab>" :
+        \ coc#refresh()
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" function! s:check_back_space() abort
-"     let col = col(".") - 1
-"     return !col || getline(".")[col - 1] =~# '\s'
-" endfunction
+function! s:check_back_space() abort
+    let col = col(".") - 1
+    return !col || getline(".")[col - 1] =~# '\s'
+endfunction
 
-" " use <CR> to confirm completion
-" if exists("*complete_info")
-"     inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-" else
-"     inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" endif
+" use <CR> to confirm completion
+if exists("*complete_info")
+    inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+    inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
 
-" " goto code navigation
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
+" goto code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-" " show documentation
-" nnoremap <silent> K :call <SID>show_documentation()<CR>
+" show documentation
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-" function! s:show_documentation()
-"     if (index(['vim','help'], &filetype) >= 0)
-"         execute 'h '.expand('<cword>')
-"     else
-"         call CocAction('doHover')
-"     endif
-" endfunction
+function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
+endfunction
 
-" " rename symbol
-" nmap <silent> gn <Plug>(coc-rename)
+" rename symbol
+nmap <silent> gn <Plug>(coc-rename)
 
-" " format selected code
-" xmap <silent> gq <Plug>(coc-format-selected)
-" nmap <silent> gq <Plug>(coc-format-selected)
+" format selected code
+xmap <silent> gq <Plug>(coc-format-selected)
+nmap <silent> gq <Plug>(coc-format-selected)
