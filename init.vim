@@ -116,7 +116,7 @@ endfunction
 function! SetYankOp()
     set opfunc=YankOp
     return "g@"
-endfun
+endfunction
 
 " vim-textobj-python mappings
 function! PythonStartup()
