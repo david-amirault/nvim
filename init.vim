@@ -134,6 +134,9 @@ function! PythonStartup()
             \         'move-p': '<buffer>[pf',
             \     }
             \ })
+endfunction
+
+function! FixFormatter()
     xnoremap <silent> <buffer> gq gq
     nnoremap <silent> <buffer> gq gq
 endfunction
@@ -142,8 +145,9 @@ endfunction
 autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab
 autocmd FileType c,cpp setlocal commentstring=//\ %s
-autocmd FileType gitcommit,gitrebase,gitconfig setlocal bufhidden=delete
+autocmd FileType gitcommit,gitrebase,gitconfig,conf setlocal bufhidden=delete
 autocmd FileType python call PythonStartup()
+autocmd FileType python,conf call FixFormatter()
 autocmd VimLeave * set guicursor=a:ver25
 
 " commands
