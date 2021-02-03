@@ -45,7 +45,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
-Plug 'bps/vim-textobj-python'
 Plug 'glts/vim-textobj-comment'
 Plug 'Julian/vim-textobj-variable-segment'
 Plug 'sgur/vim-textobj-parameter'
@@ -54,7 +53,6 @@ call plug#end()
 " settings
 let $GIT_EDITOR = "nvr -cc split --remote-wait"
 let g:fzf_layout = { "window": { "width": 0.9, "height": 0.6 } }
-let g:textobj_python_no_default_key_mappings = 1
 let g:vim_textobj_parameter_mapping = "a"
 colorscheme solarized
 match LineNr /\s\+$/
@@ -118,24 +116,6 @@ function! SetYankOp()
     return "g@"
 endfunction
 
-" vim-textobj-python mappings
-function! PythonStartup()
-    call textobj#user#map('python', {
-            \     'class': {
-            \         'select-a': '<buffer>al',
-            \         'select-i': '<buffer>il',
-            \         'move-n': '<buffer>]pl',
-            \         'move-p': '<buffer>[pl',
-            \     },
-            \     'function': {
-            \         'select-a': '<buffer>af',
-            \         'select-i': '<buffer>if',
-            \         'move-n': '<buffer>]pf',
-            \         'move-p': '<buffer>[pf',
-            \     }
-            \ })
-endfunction
-
 function! FixFormatter()
     xnoremap <silent> <buffer> gq gq
     nnoremap <silent> <buffer> gq gq
@@ -146,7 +126,6 @@ autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab
 autocmd FileType c,cpp setlocal commentstring=//\ %s
 autocmd FileType gitcommit,gitrebase,gitconfig,conf setlocal bufhidden=delete
-autocmd FileType python call PythonStartup()
 autocmd FileType python,conf call FixFormatter()
 autocmd VimLeave * set guicursor=a:ver25
 
