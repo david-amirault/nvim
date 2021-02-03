@@ -18,6 +18,9 @@ eval $(dircolors ~/.dircolors)
 
 export PATH=$PATH:$HOME/.local/share/nvim/plugged/fzf/bin
 
+# Exit early in non-interactive shells.
+[[ $- != *i* ]] && return
+
 source /usr/share/bash-completion/completions/git
 source ~/.local/share/nvim/plugged/fzf/shell/key-bindings.bash
 source ~/.bash_aliases
