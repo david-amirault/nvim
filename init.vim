@@ -36,7 +36,7 @@ endif
 
 " plugins
 call plug#begin(g:plugged)
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'ackyshake/VimCompletesMe'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'altercation/vim-colors-solarized'
@@ -55,7 +55,6 @@ let $GIT_EDITOR = "nvr -cc split --remote-wait"
 let g:fzf_layout = { "window": { "width": 0.9, "height": 0.6 } }
 let g:vim_textobj_parameter_mapping = "a"
 colorscheme solarized
-match LineNr /\s\+$/
 
 " =========
 " Vimscript
@@ -116,17 +115,12 @@ function! SetYankOp()
     return "g@"
 endfunction
 
-function! FixFormatter()
-    xnoremap <silent> <buffer> gq gq
-    nnoremap <silent> <buffer> gq gq
-endfunction
-
 " autocommands
+autocmd BufWinEnter * match LineNr /\s\+$/
 autocmd FileType html,xhtml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab
 autocmd FileType c,cpp setlocal commentstring=//\ %s
-autocmd FileType gitcommit,gitrebase,gitconfig,conf setlocal bufhidden=delete
-autocmd FileType python,conf call FixFormatter()
+autocmd FileType gitcommit,gitrebase,gitconfig setlocal bufhidden=delete
 autocmd VimLeave * set guicursor=a:ver25
 
 " commands
@@ -161,7 +155,7 @@ inoremap tn <Esc>
 nnoremap <silent> <Leader>f :call Popterm()<CR>
 tnoremap <silent> <Leader>f <C-\><C-n>:call Popterm()<CR>
 nnoremap - :call Popterm(1, "cd ".expand("%:p:h")."\n")<CR>
-nnoremap <Leader>m :call Popterm(1, "make ")<CR>
+nnoremap <Leader>m :call Popterm(1, "make")<CR>
 
 " yank
 nnoremap Y y$
@@ -175,56 +169,3 @@ nnoremap <Leader>p :GFiles<CR>
 nnoremap <Leader>g :Rg<Space>
 nnoremap <Leader>s :Buffers<CR>
 nnoremap <Leader>r :History:<CR>
-
-" ===============
-" Code Completion
-" ===============
-
-" coc completion
-let g:python3_host_prog = "/path/to/python"
-
-" 300ms trigger latency
-set updatetime=300
-
-" use <Tab> for trigger completion with characters ahead and navigate
-inoremap <silent> <expr> <Tab>
-        \ pumvisible() ? "\<C-n>" :
-        \ <SID>check_back_space() ? "\<Tab>" :
-        \ coc#refresh()
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-    let col = col(".") - 1
-    return !col || getline(".")[col - 1] =~# '\s'
-endfunction
-
-" use <CR> to confirm completion
-if exists("*complete_info")
-    inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-    inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
-
-" goto code navigation
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" show documentation
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-    else
-        call CocAction('doHover')
-    endif
-endfunction
-
-" rename symbol
-nmap <silent> gn <Plug>(coc-rename)
-
-" format selected code
-xmap <silent> gq <Plug>(coc-format-selected)
-nmap <silent> gq <Plug>(coc-format-selected)
