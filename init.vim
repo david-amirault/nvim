@@ -155,7 +155,7 @@ inoremap tn <Esc>
 nnoremap <silent> <Leader>f :call Popterm()<CR>
 tnoremap <silent> <Leader>f <C-\><C-n>:call Popterm()<CR>
 nnoremap - :call Popterm(1, "cd ".expand("%:p:h")."\n")<CR>
-nnoremap <Leader>m :call Popterm(1, "make")<CR>
+nnoremap <Leader>m :call Popterm(1, "make ")<CR>
 
 " yank
 nnoremap Y y$
